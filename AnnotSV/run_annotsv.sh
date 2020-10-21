@@ -19,7 +19,7 @@ INPUT_PATH=/work2/lynn88065/Dragen/Outputs/GRCh38/v3.6.3/NA12878_HG001_hg38/
 SV_VCF=$INPUT_PATH/Dragen_${SAMPLE_NAME}_${hg}.sv.vcf.gz
 CNV_VCF=$INPUT_PATH/Dragen_${SAMPLE_NAME}_${hg}.cnv.vcf.gz
 REPEAT_VCF=$INPUT_PATH/Dragen_${SAMPLE_NAME}_${hg}.repeats.vcf.gz
-OUTPUT_PATH=/work2/lynn88065/Annotation/temp/AnnotSV
+OUTPUT_PATH=/work2/lynn88065/script/Annotation/AnnotSV
 
 mkdir -p $OUTPUT_PATH/${SAMPLE_NAME}
 cd $OUTPUT_PATH/${SAMPLE_NAME}
