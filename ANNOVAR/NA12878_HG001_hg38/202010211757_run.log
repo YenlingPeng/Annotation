@@ -1,0 +1,82 @@
++ para=ANNOVAR_NA12878_HG001
++ ANNOVAR=/pkg/biology/ANNOVAR/ANNOVAR_20191024/table_annovar.pl
++ humandb=/project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb
++ /pkg/biology/ANNOVAR/ANNOVAR_20191024/table_annovar.pl /work2/lynn88065/script/Annotation/Input/Dragen_NA12878_HG001_hg38.chr1.vcf.gz /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb -buildver hg38 -out ANNOVAR_NA12878_HG001 -remove -protocol refGene,exac03,exac03nonpsych,gnomad211_exome,gnomad211_genome,avsnp150,clinvar_20190305 -operation gx,f,f,f,f,f,f -nastring . -vcfinput -polish
+
+NOTICE: Running with system command <convert2annovar.pl  -includeinfo -allsample -withfreq -format vcf4 /work2/lynn88065/script/Annotation/Input/Dragen_NA12878_HG001_hg38.chr1.vcf.gz > ANNOVAR_NA12878_HG001.avinput>
+NOTICE: Finished reading 5000 lines from VCF file
+NOTICE: A total of 1593 locus in VCF file passed QC threshold, representing 1350 SNPs (915 transitions and 435 transversions) and 254 indels/substitutions
+NOTICE: Finished writing allele frequencies based on 1350 SNP genotypes (915 transitions and 435 transversions) and 254 indels/substitutions for 1 samples
+
+NOTICE: Running with system command </pkg/biology/ANNOVAR/ANNOVAR_20191024/table_annovar.pl ANNOVAR_NA12878_HG001.avinput /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb -buildver hg38 -outfile ANNOVAR_NA12878_HG001 -remove -protocol refGene,exac03,exac03nonpsych,gnomad211_exome,gnomad211_genome,avsnp150,clinvar_20190305 -operation gx,f,f,f,f,f,f -nastring . -polish -otherinfo>
+-----------------------------------------------------------------
+NOTICE: Processing operation=gx protocol=refGene
+WARNING: the 'g' rather than 'gx' operation will used due to lack of -xreffile argument
+
+NOTICE: Running with system command <annotate_variation.pl -geneanno -buildver hg38 -dbtype refGene -outfile ANNOVAR_NA12878_HG001.refGene -exonsort -nofirstcodondel ANNOVAR_NA12878_HG001.avinput /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb>
+NOTICE: Output files are written to ANNOVAR_NA12878_HG001.refGene.variant_function, ANNOVAR_NA12878_HG001.refGene.exonic_variant_function
+NOTICE: Reading gene annotation from /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/hg38_refGene.txt ... Done with 82500 transcripts (including 20366 without coding sequence annotation) for 28265 unique genes
+NOTICE: Processing next batch with 1604 unique variants in 1604 input lines
+NOTICE: Reading FASTA sequences from /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/hg38_refGeneMrna.fa ... Done with 18 sequences
+WARNING: A total of 591 sequences will be ignored due to lack of correct ORF annotation
+
+NOTICE: Running with system command <coding_change.pl  ANNOVAR_NA12878_HG001.refGene.exonic_variant_function.orig /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/hg38_refGene.txt /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/hg38_refGeneMrna.fa -alltranscript -out ANNOVAR_NA12878_HG001.refGene.fa -newevf ANNOVAR_NA12878_HG001.refGene.exonic_variant_function>
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=exac03
+NOTICE: Finished reading 8 column headers for '-dbtype exac03'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype exac03 -buildver hg38 -outfile ANNOVAR_NA12878_HG001 ANNOVAR_NA12878_HG001.avinput /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb -otherinfo>
+NOTICE: Output file with variants matching filtering criteria is written to ANNOVAR_NA12878_HG001.hg38_exac03_dropped, and output file with other variants is written to ANNOVAR_NA12878_HG001.hg38_exac03_filtered
+NOTICE: Processing next batch with 1604 unique variants in 1604 input lines
+NOTICE: Database index loaded. Total number of bins is 749044 and the number of bins to be scanned is 76
+NOTICE: Scanning filter database /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/hg38_exac03.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=exac03nonpsych
+NOTICE: Finished reading 8 column headers for '-dbtype exac03nonpsych'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype exac03nonpsych -buildver hg38 -outfile ANNOVAR_NA12878_HG001 ANNOVAR_NA12878_HG001.avinput /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb -otherinfo>
+NOTICE: Output file with variants matching filtering criteria is written to ANNOVAR_NA12878_HG001.hg38_exac03nonpsych_dropped, and output file with other variants is written to ANNOVAR_NA12878_HG001.hg38_exac03nonpsych_filtered
+NOTICE: Processing next batch with 1604 unique variants in 1604 input lines
+NOTICE: Database index loaded. Total number of bins is 746547 and the number of bins to be scanned is 76
+NOTICE: Scanning filter database /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/hg38_exac03nonpsych.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=gnomad211_exome
+NOTICE: Finished reading 17 column headers for '-dbtype gnomad211_exome'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype gnomad211_exome -buildver hg38 -outfile ANNOVAR_NA12878_HG001 ANNOVAR_NA12878_HG001.avinput /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb -otherinfo>
+NOTICE: Output file with variants matching filtering criteria is written to ANNOVAR_NA12878_HG001.hg38_gnomad211_exome_dropped, and output file with other variants is written to ANNOVAR_NA12878_HG001.hg38_gnomad211_exome_filtered
+NOTICE: Processing next batch with 1604 unique variants in 1604 input lines
+NOTICE: Database index loaded. Total number of bins is 771804 and the number of bins to be scanned is 78
+NOTICE: Scanning filter database /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/hg38_gnomad211_exome.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=gnomad211_genome
+NOTICE: Finished reading 17 column headers for '-dbtype gnomad211_genome'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype gnomad211_genome -buildver hg38 -outfile ANNOVAR_NA12878_HG001 ANNOVAR_NA12878_HG001.avinput /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb -otherinfo>
+NOTICE: Output file with variants matching filtering criteria is written to ANNOVAR_NA12878_HG001.hg38_gnomad211_genome_dropped, and output file with other variants is written to ANNOVAR_NA12878_HG001.hg38_gnomad211_genome_filtered
+NOTICE: Processing next batch with 1604 unique variants in 1604 input lines
+NOTICE: Database index loaded. Total number of bins is 28076758 and the number of bins to be scanned is 1157
+NOTICE: Scanning filter database /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/hg38_gnomad211_genome.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=avsnp150
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype avsnp150 -buildver hg38 -outfile ANNOVAR_NA12878_HG001 ANNOVAR_NA12878_HG001.avinput /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb>
+NOTICE: Output file with variants matching filtering criteria is written to ANNOVAR_NA12878_HG001.hg38_avsnp150_dropped, and output file with other variants is written to ANNOVAR_NA12878_HG001.hg38_avsnp150_filtered
+NOTICE: Processing next batch with 1604 unique variants in 1604 input lines
+NOTICE: Scanning filter database /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/hg38_avsnp150.txt...Done
+-----------------------------------------------------------------
+NOTICE: Processing operation=f protocol=clinvar_20190305
+NOTICE: Finished reading 5 column headers for '-dbtype clinvar_20190305'
+
+NOTICE: Running system command <annotate_variation.pl -filter -dbtype clinvar_20190305 -buildver hg38 -outfile ANNOVAR_NA12878_HG001 ANNOVAR_NA12878_HG001.avinput /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb -otherinfo>
+NOTICE: the --dbtype clinvar_20190305 is assumed to be in generic ANNOVAR database format
+NOTICE: Output file with variants matching filtering criteria is written to ANNOVAR_NA12878_HG001.hg38_clinvar_20190305_dropped, and output file with other variants is written to ANNOVAR_NA12878_HG001.hg38_clinvar_20190305_filtered
+NOTICE: Processing next batch with 1604 unique variants in 1604 input lines
+NOTICE: Scanning filter database /project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/hg38_clinvar_20190305.txt...Done
+-----------------------------------------------------------------
+NOTICE: Multianno output file is written to ANNOVAR_NA12878_HG001.hg38_multianno.txt
+NOTICE: Reading from ANNOVAR_NA12878_HG001.hg38_multianno.txt
+-----------------------------------------------------------------
+NOTICE: VCF output is written to ANNOVAR_NA12878_HG001.hg38_multianno.vcf
+
+gzip: stdout: Broken pipe

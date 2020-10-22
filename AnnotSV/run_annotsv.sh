@@ -1,6 +1,5 @@
 #!/bin/bash
-#PBS -l select=1:ncpus=20
-#PBS -q ntu192G
+#PBS -q ngs96G
 #PBS -P MST109178
 #PBS -W group_list=MST109178
 #PBS -N AnnotSV
@@ -34,7 +33,7 @@ $AnnotSV -SVinputFile $CNV_VCF -annotationsDir /work2/lynn88065/Software/Downloa
         -outputFile ${SAMPLE_NAME}_cnv.sorted.vcf.annotSV.output.tsv >& AnnotSV_cnv.log &&
 
 $AnnotSV -SVinputFile $REPEAT_VCF -annotationsDir /work2/lynn88065/Software/Download \
-        -bedtools bedtools -genomeBuild GRCh38 -metrics us -outputDir $OUTPUT_PATH$SAMPLE_NAME \
+        -bedtools bedtools -genomeBuild GRCh38 -metrics us -outputDir $OUTPUT_PATH/$SAMPLE_NAME \
         -outputFile ${SAMPLE_NAME}_repeats.sorted.vcf.annotSV.output.tsv >& AnnotSV_repeats.log
 
 

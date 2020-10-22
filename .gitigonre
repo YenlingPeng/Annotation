@@ -1,0 +1,9 @@
+# Annotation .gitignore
+# ANNOVAR & AnnotSV
+*.vcf
+*.vcf.idx
+*.log
+
+# log
+ANNOVAR/ANNOVAR_hg38Tohg19.o8633649
+AnnotSV/AnnotSV.o8633699
