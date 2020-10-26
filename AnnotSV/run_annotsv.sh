@@ -14,7 +14,7 @@ source /pkg/biology/AnnotSV/AnnotSV_v2.3.2/bin/env.sh
 export PATH=$PATH:/pkg/biology/BEDTools/BEDTools_v2.27.1/bin/
 
 AnnotSV=/pkg/biology/AnnotSV/AnnotSV_v2.3.2/bin/AnnotSV
-INPUT_PATH=/work2/lynn88065/Dragen/Outputs/GRCh38/v3.6.3/NA12878_HG001_hg38/
+INPUT_PATH=/work2/lynn88065/script/Annotation/Input
 SV_VCF=$INPUT_PATH/Dragen_${SAMPLE_NAME}_${hg}.sv.vcf.gz
 CNV_VCF=$INPUT_PATH/Dragen_${SAMPLE_NAME}_${hg}.cnv.vcf.gz
 REPEAT_VCF=$INPUT_PATH/Dragen_${SAMPLE_NAME}_${hg}.repeats.vcf.gz
