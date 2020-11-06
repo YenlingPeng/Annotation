@@ -40,5 +40,9 @@ ANNOVAR="/pkg/biology/ANNOVAR/ANNOVAR_20191024/table_annovar.pl"
 normalized_VCF=$OUTPUT_PATH/${SAMPLE_ID}_${hg}/${SAMPLE_ID}_${hg}.norm.vcf
 humandb="/project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb/"
 
-$ANNOVAR $normalized_VCF $humandb -buildver ${hg} -out ${para} -remove -protocol refGene,TaiwanBiobank-official,TaiwanBiobank993WGS,avsnp150,exac03,exac03nonpsych,clinvar_20190305,gnomad211_exome,gnomad211_genome,cosmic_coding_GRCh37_v91,cosmic_noncoding_GRCh37_v91 -operation gx,f,f,f,f,f,f,f,f,f,f -nastring . -vcfinput -polish
+# hg19
+$ANNOVAR $normalized_VCF $humandb -buildver ${hg} -out ${para} -remove -protocol refGene,knownGene,ensGene,TaiwanBiobank993WGS,gnomad211_genome,avsnp150,TaiwanBiobank-official,gnomad211_exome,clinvar_20200316,cosmic_coding_GRCh37_v92,cosmic_noncoding_GRCh37_v92,dbnsfp41a -operation gx,gx,gx,f,f,f,f,f,f,f,f,f -nastring . -vcfinput -polish --maxgenethread 20 --thread 20
 
+# filtering the exonic/splicing and nonsynonymous/ncRNA_exonic variants
+head -n 1 ${para}.${hg}_multianno.txt > ${para}_filtered_annotation.txt
+grep -e "exonic" -e "splicing" ${para}.${hg}_multianno.txt | grep -P -v "\tsynonymous" | grep -P -v "\tncRNA_exonic\t" >> ${para}_filtered_annotation.txt

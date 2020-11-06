@@ -20,7 +20,11 @@ set -x
 # run Annotation
 para="ANNOVAR_${SAMPLE_ID}"
 ANNOVAR="/pkg/biology/ANNOVAR/ANNOVAR_20191024/table_annovar.pl"
-humandb="/project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOVAR/humandb"
+humandb="/project/GP1/u3710062/AI_SHARE/shared_scripts/ANNOTATION/ANNOVAR/humandb/"
 
-$ANNOVAR $VCF $humandb -buildver ${hg} -out ${para} -remove -protocol refGene,exac03,exac03nonpsych,gnomad211_exome,gnomad211_genome,avsnp150,clinvar_20190305 -operation gx,f,f,f,f,f,f -nastring . -vcfinput -polish
+# hg38
+$ANNOVAR $VCF $humandb -buildver ${hg} -out ${para} -remove -protocol refGene,knownGene,ensGene,gnomad211_genome,avsnp150,gnomad211_exome,clinvar_20200316,dbnsfp41a -operation gx,gx,gx,f,f,f,f,f -nastring . -vcfinput -polish --maxgenethread 20 --thread 20  
 
+# filtering the exonic/splicing and nonsynonymous/ncRNA_exonic variants
+head -n 1 ${para}.${hg}_multianno.txt > ${para}_filtered_annotation.txt
+grep -e "exonic" -e "splicing" ${para}.${hg}_multianno.txt | grep -P -v "\tsynonymous" | grep -P -v "\tncRNA_exonic\t" >> ${para}_filtered_annotation.txt
